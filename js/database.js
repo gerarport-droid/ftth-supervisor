@@ -13,11 +13,7 @@ function initDB() {
 
             db = event.target.result;
 
-            if (
-                !db.objectStoreNames.contains(
-                    STORE_NAME
-                )
-            ) {
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
 
                 db.createObjectStore(
                     STORE_NAME,
@@ -34,9 +30,7 @@ function initDB() {
 
             db = request.result;
 
-            console.log(
-                "Base iniciada"
-            );
+            console.log("Base iniciada");
 
             resolve();
 
@@ -44,9 +38,7 @@ function initDB() {
 
         request.onerror = () => {
 
-            reject(
-                request.error
-            );
+            reject(request.error);
 
         };
 
@@ -60,4 +52,18 @@ function guardarAuditoria(data) {
         db.transaction(
             STORE_NAME,
             "readwrite"
-        )
+        );
+
+    const store =
+        tx.objectStore(
+            STORE_NAME
+        );
+
+    store.put(data);
+
+    console.log(
+        "Auditoría guardada",
+        data
+    );
+
+}
