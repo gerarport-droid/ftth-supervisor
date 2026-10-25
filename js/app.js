@@ -98,6 +98,8 @@ document.addEventListener(
                             auditoria
                         );
 
+                    alert("Después de enviar");
+                    
                     if (ok) {
 
                         alert(
