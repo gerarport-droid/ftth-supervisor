@@ -67,6 +67,8 @@ document.addEventListener(
                 "click",
                 async () => {
 
+                    alert("Botón Enviar detectado");
+                    
                     const auditoria = {
 
                         supervisor:
