@@ -26,6 +26,10 @@ async function enviarFormulario(auditoria) {
         auditoria.usuarioSalesforce
     );
 
+    console.log(
+        payload.toString()
+    );
+
     try {
 
         await fetch(
@@ -39,7 +43,8 @@ async function enviarFormulario(auditoria) {
 
         return true;
 
-    } catch (error) {
+    }
+    catch (error) {
 
         console.error(error);
 
