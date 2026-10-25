@@ -3,26 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
     <title>Nueva Auditoría</title>
 
-    <link rel="stylesheet"
-          href="../css/app.css">
-
+    <link rel="stylesheet" href="../css/app.css">
 </head>
 
 <body>
 
     <h1>Nueva Auditoría</h1>
 
-    <p>FTTH Supervisor</p>
+    <div class="card">
 
-    <a href="../index.html">
-        Volver al inicio
-    </a>
+        <label>Supervisor</label>
+        <input id="supervisor" type="text">
+
+        <label>Contratista</label>
+        <input id="contratista" type="text">
+
+        <label>Cuadrilla</label>
+        <input id="cuadrilla" type="text">
+
+        <label>Usuario Salesforce</label>
+        <input id="usuarioSalesforce" type="text">
+
+        <button id="btnGuardar">
+            Guardar Borrador
+        </button>
+
+    </div>
+
+    <p>
+        <a href="../index.html">
+            Volver al inicio
+        </a>
+    </p>
+
+    <script src="../js/database.js"></script>
+    <script src="../js/app.js"></script>
 
 </body>
 
