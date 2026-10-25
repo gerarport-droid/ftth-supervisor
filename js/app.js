@@ -97,8 +97,6 @@ document.addEventListener(
                         await enviarFormulario(
                             auditoria
                         );
-
-                    alert("Después de enviar");
                     
                     if (ok) {
 
