@@ -1,0 +1,63 @@
+const DB_NAME = "FTTHSupervisorDB";
+const STORE_NAME = "auditorias";
+
+let db;
+
+function initDB() {
+
+    return new Promise((resolve, reject) => {
+
+        const request = indexedDB.open(DB_NAME, 1);
+
+        request.onupgradeneeded = (event) => {
+
+            db = event.target.result;
+
+            if (
+                !db.objectStoreNames.contains(
+                    STORE_NAME
+                )
+            ) {
+
+                db.createObjectStore(
+                    STORE_NAME,
+                    {
+                        keyPath: "id"
+                    }
+                );
+
+            }
+
+        };
+
+        request.onsuccess = () => {
+
+            db = request.result;
+
+            console.log(
+                "Base iniciada"
+            );
+
+            resolve();
+
+        };
+
+        request.onerror = () => {
+
+            reject(
+                request.error
+            );
+
+        };
+
+    });
+
+}
+
+function guardarAuditoria(data) {
+
+    const tx =
+        db.transaction(
+            STORE_NAME,
+            "readwrite"
+        )
