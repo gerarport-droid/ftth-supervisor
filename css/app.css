@@ -1,0 +1,19 @@
+CSS
+body{
+font-family: Arial, sans-serif;
+margin:0;
+padding:20px;
+background:#f8fafc;
+}
+ 
+h1{
+color:#0057B8;
+}
+ 
+.card{
+background:white;
+border-radius:12px;
+padding:16px;
+margin-bottom:16px;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
