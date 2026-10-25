@@ -21,6 +21,10 @@ document.addEventListener(
 
                         id: Date.now(),
 
+                        fecha:
+                            new Date()
+                            .toISOString(),
+
                         supervisor:
                             document.getElementById(
                                 "supervisor"
@@ -39,6 +43,91 @@ document.addEventListener(
                         usuarioSalesforce:
                             document.getElementById(
                                 "usuarioSalesforce"
+                            ).value,
+
+                        aparienciaTecnico:
+                            document.getElementById(
+                                "aparienciaTecnico"
+                            ).value,
+
+                        carnetIdentificacion:
+                            document.getElementById(
+                                "carnetIdentificacion"
+                            ).value,
+
+                        telefonoStaff:
+                            document.getElementById(
+                                "telefonoStaff"
+                            ).value,
+
+                        uniformePantalon:
+                            document.getElementById(
+                                "uniformePantalon"
+                            ).value,
+
+                        uniformeRemera:
+                            document.getElementById(
+                                "uniformeRemera"
+                            ).value,
+
+                        itv:
+                            document.getElementById(
+                                "itv"
+                            ).value,
+
+                        extinguidor:
+                            document.getElementById(
+                                "extinguidor"
+                            ).value,
+
+                        baliza:
+                            document.getElementById(
+                                "baliza"
+                            ).value,
+
+                        gato:
+                            document.getElementById(
+                                "gato"
+                            ).value,
+
+                        llaveRuedas:
+                            document.getElementById(
+                                "llaveRuedas"
+                            ).value,
+
+                        auxilio:
+                            document.getElementById(
+                                "auxilio"
+                            ).value,
+
+                        anteojos:
+                            document.getElementById(
+                                "anteojos"
+                            ).value,
+
+                        casco:
+                            document.getElementById(
+                                "casco"
+                            ).value,
+
+                        chaleco:
+                            document.getElementById(
+                                "chaleco"
+                            ).value,
+
+                        guantes:
+                            document.getElementById(
+                                "guantes"
+                            ).value,
+
+                        zapatones:
+                            document.getElementById(
+                                "zapatones"
+                            ).value,
+
+                        observaciones:
+                            document.getElementById(
+                                "observaciones"
                             ).value
 
                     };
@@ -66,7 +155,7 @@ document.addEventListener(
             botonEnviar.addEventListener(
                 "click",
                 async () => {
-                    
+
                     const auditoria = {
 
                         supervisor:
@@ -95,7 +184,7 @@ document.addEventListener(
                         await enviarFormulario(
                             auditoria
                         );
-                    
+
                     if (ok) {
 
                         alert(
