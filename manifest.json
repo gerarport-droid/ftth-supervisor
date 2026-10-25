@@ -1,0 +1,14 @@
+{
+  "id": "/",
+  "name": "FTTH Supervisor",
+  "short_name": "FTTH",
+  "description": "Auditoría y Supervisión de Cuadrillas FTTH",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0057B8",
+  "lang": "es-PY",
+  "icons": []
+}
