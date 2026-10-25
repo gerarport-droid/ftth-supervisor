@@ -16,13 +16,81 @@
 
     <h1>Historial</h1>
 
-    <p>Auditorías almacenadas</p>
+    <div id="historialList">
+    </div>
 
-    <a href="../index.html">
-        Volver al inicio
-    </a>
+    <p>
+        <a href="../index.html">
+            Volver al inicio
+        </a>
+    </p>
 
-    <div id="historialList"></div>
+    <script src="../js/database.js"></script>
+
+    <script>
+
+        async function cargarHistorial() {
+
+            const tx =
+                db.transaction(
+                    "auditorias",
+                    "readonly"
+                );
+
+            const store =
+                tx.objectStore(
+                    "auditorias"
+                );
+
+            const request =
+                store.getAll();
+
+            request.onsuccess =
+                () => {
+
+                    const lista =
+                        document.getElementById(
+                            "historialList"
+                        );
+
+                    request.result.forEach(
+                        item => {
+
+                            const div =
+                                document.createElement(
+                                    "div"
+                                );
+
+                            div.className =
+                                "card";
+
+                            div.innerHTML = `
+                                <strong>${item.supervisor}</strong><br>
+                                ${item.contratista}<br>
+                                ${item.cuadrilla}<br>
+                                ${item.usuarioSalesforce}
+                            `;
+
+                            lista.appendChild(
+                                div
+                            );
+
+                        }
+                    );
+
+                };
+
+        }
+
+        initDB().then(
+            () => {
+
+                cargarHistorial();
+
+            }
+        );
+
+    </script>
 
 </body>
 
