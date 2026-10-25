@@ -6,14 +6,14 @@ document.addEventListener(
             await initDB();
         }
 
-        const boton =
+        const botonGuardar =
             document.getElementById(
                 "btnGuardar"
             );
 
-        if (boton) {
+        if (botonGuardar) {
 
-            boton.addEventListener(
+            botonGuardar.addEventListener(
                 "click",
                 () => {
 
@@ -50,6 +50,65 @@ document.addEventListener(
                     alert(
                         "Auditoría guardada correctamente"
                     );
+
+                }
+            );
+
+        }
+
+        const botonEnviar =
+            document.getElementById(
+                "btnEnviar"
+            );
+
+        if (botonEnviar) {
+
+            botonEnviar.addEventListener(
+                "click",
+                async () => {
+
+                    const auditoria = {
+
+                        supervisor:
+                            document.getElementById(
+                                "supervisor"
+                            ).value,
+
+                        contratista:
+                            document.getElementById(
+                                "contratista"
+                            ).value,
+
+                        cuadrilla:
+                            document.getElementById(
+                                "cuadrilla"
+                            ).value,
+
+                        usuarioSalesforce:
+                            document.getElementById(
+                                "usuarioSalesforce"
+                            ).value
+
+                    };
+
+                    const ok =
+                        await enviarFormulario(
+                            auditoria
+                        );
+
+                    if (ok) {
+
+                        alert(
+                            "Formulario enviado correctamente"
+                        );
+
+                    } else {
+
+                        alert(
+                            "Error al enviar formulario"
+                        );
+
+                    }
 
                 }
             );
