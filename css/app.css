@@ -1,19 +1,57 @@
-CSS
 body{
-font-family: Arial, sans-serif;
-margin:0;
-padding:20px;
-background:#f8fafc;
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:20px;
+    background:#f4f7fb;
 }
- 
+
 h1{
-color:#0057B8;
+    color:#0057B8;
 }
- 
+
 .card{
-background:white;
-border-radius:12px;
-padding:16px;
-margin-bottom:16px;
-box-shadow:0 2px 8px rgba(0,0,0,.08);
+    background:white;
+    padding:16px;
+    border-radius:12px;
+    margin-bottom:16px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.1);
+}
+
+a{
+    color:#0057B8;
+    text-decoration:none;
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:10px;
+
+    margin-top:8px;
+    margin-bottom:16px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+}
+
+button{
+
+    background:#0057B8;
+
+    color:white;
+
+    border:none;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
 }
