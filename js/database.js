@@ -7,40 +7,54 @@ function initDB() {
 
     return new Promise((resolve, reject) => {
 
-        const request = indexedDB.open(DB_NAME, 1);
+        const request =
+            indexedDB.open(DB_NAME, 1);
 
-        request.onupgradeneeded = (event) => {
+        request.onupgradeneeded =
+            (event) => {
 
-            db = event.target.result;
+                db =
+                    event.target.result;
 
-            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                if (
+                    !db.objectStoreNames
+                        .contains(
+                            STORE_NAME
+                        )
+                ) {
 
-                db.createObjectStore(
-                    STORE_NAME,
-                    {
-                        keyPath: "id"
-                    }
+                    db.createObjectStore(
+                        STORE_NAME,
+                        {
+                            keyPath: "id"
+                        }
+                    );
+
+                }
+
+            };
+
+        request.onsuccess =
+            () => {
+
+                db = request.result;
+
+                console.log(
+                    "Base iniciada"
                 );
 
-            }
+                resolve();
 
-        };
+            };
 
-        request.onsuccess = () => {
+        request.onerror =
+            () => {
 
-            db = request.result;
+                reject(
+                    request.error
+                );
 
-            console.log("Base iniciada");
-
-            resolve();
-
-        };
-
-        request.onerror = () => {
-
-            reject(request.error);
-
-        };
+            };
 
     });
 
@@ -67,3 +81,29 @@ function guardarAuditoria(data) {
     );
 
 }
+
+function obtenerTodas() {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            const tx =
+                db.transaction(
+                    STORE_NAME,
+                    "readonly"
+                );
+
+            const store =
+                tx.objectStore(
+                    STORE_NAME
+                );
+
+            const request =
+                store.getAll();
+
+            request.onsuccess =
+                () => {
+
+                    resolve(
+                        request.result
+                    
