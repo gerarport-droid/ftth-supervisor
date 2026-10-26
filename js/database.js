@@ -96,23 +96,21 @@ function obtenerTodas() {
             const request =
                 store.getAll();
 
-            request.onsuccess =
-                () => {
+            request.onsuccess = () => {
 
-                    resolve(
-                        request.result
-                    );
+                resolve(
+                    request.result
+                );
 
-                };
+            };
 
-            request.onerror =
-                () => {
+            request.onerror = () => {
 
-                    reject(
-                        request.error
-                    );
+                reject(
+                    request.error
+                );
 
-                };
+            };
 
         }
     );
@@ -138,14 +136,48 @@ function obtenerAuditoria(id) {
             const request =
                 store.get(id);
 
-            request.onsuccess =
-                () => {
+            request.onsuccess = () => {
 
-                    resolve(
-                        request.result
-                    );
+                resolve(
+                    request.result
+                );
 
-                };
+            };
 
-            request.onerror =
-                () => {
+            request.onerror = () => {
+
+                reject(
+                    request.error
+                );
+
+            };
+
+        }
+    );
+
+}
+
+function eliminarAuditoria(id) {
+
+    return new Promise(
+        (resolve, reject) => {
+
+            const tx =
+                db.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+            const store =
+                tx.objectStore(
+                    STORE_NAME
+                );
+
+            const request =
+                store.delete(id);
+
+            request.onsuccess = () => {
+
+                resolve(true);
+
+    
