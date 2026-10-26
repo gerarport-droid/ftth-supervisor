@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Detalle Auditoría</title>
+
+    <link rel="stylesheet"
+          href="../css/app.css">
+
+</head>
+
+<body>
+
+    <h1>Detalle Auditoría</h1>
+
+    <div
+        id="detalle"
+        class="card">
+
+    </div>
+
+    <p>
+        <a href="historial.html">
+            Volver al historial
+        </a>
+    </p>
+
+    <script src="../js/database.js"></script>
+
+    <script>
+
+        async function cargarDetalle() {
+
+            const id =
+                Number(
+                    localStorage.getItem(
+                        "auditoriaSeleccionada"
+                    )
+                );
+
+            const auditoria =
+                await obtenerAuditoria(id);
+
+            const detalle =
+                document.getElementById(
+                    "detalle"
+                );
+
+            detalle.innerHTML = `
+
+                <h3>Datos Generales</h3>
+
+                <p>
+                    <strong>Supervisor:</strong>
+                    ${auditoria.supervisor || "-"
