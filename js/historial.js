@@ -36,9 +36,7 @@ async function cargarHistorial() {
 
             card.innerHTML = `
 
-                <h3>
-                    ${item.cuadrilla || "-"}
-                </h3>
+                <h3>${item.cuadrilla || "-"}</h3>
 
                 <p>
                     <strong>Supervisor:</strong>
@@ -57,4 +55,87 @@ async function cargarHistorial() {
 
                 <p>
                     <strong>Fecha:</strong>
-                  
+                    ${item.fecha || "-"}
+                </p>
+
+                <p>
+                    <strong>Observaciones:</strong>
+                    ${item.observaciones || "-"}
+                </p>
+
+                <p>
+                    <strong>Evidencias:</strong>
+                    ${cantidadFotos}
+                </p>
+
+                <button onclick="verAuditoria(${item.id})">
+                    Ver
+                </button>
+
+                <button onclick="editarAuditoria(${item.id})">
+                    Editar
+                </button>
+
+                <button onclick="borrarAuditoria(${item.id})">
+                    Eliminar
+                </button>
+
+            `;
+
+            lista.appendChild(
+                card
+            );
+
+        }
+
+    );
+
+}
+
+function verAuditoria(id) {
+
+    localStorage.setItem(
+        "auditoriaSeleccionada",
+        id
+    );
+
+    location.href =
+        "detalle.html";
+
+}
+
+function editarAuditoria(id) {
+
+    localStorage.setItem(
+        "auditoriaEditar",
+        id
+    );
+
+    location.href =
+        "auditoria.html";
+
+}
+
+async function borrarAuditoria(id) {
+
+    const confirmar =
+        confirm(
+            "¿Eliminar auditoría?"
+        );
+
+    if (!confirmar) {
+        return;
+    }
+
+    await eliminarAuditoria(id);
+
+    cargarHistorial();
+
+}
+
+initDB()
+    .then(() => {
+
+        cargarHistorial();
+
+    });
