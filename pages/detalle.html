@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Detalle Auditoría</title>
+
+    <link rel="stylesheet"
+          href="../css/app.css">
+
+</head>
+
+<body>
+
+    <h1>Detalle Auditoría</h1>
+
+    <div id="detalle"
+         class="card">
+    </div>
+
+    <p>
+        <a href="historial.html">
+            Volver al historial
+        </a>
+    </p>
+
+    <script src="../js/database.js"></script>
+
+    <script>
+
+        async function cargarDetalle() {
+
+            const id =
+                Number(
+                    localStorage.getItem(
+                        "auditoriaSeleccionada"
+                    )
+                );
+
+            const auditoria =
+                await obtenerAuditoria(id);
+
+            const detalle =
+                document.getElementById(
+                    "detalle"
+                );
+
+            detalle.innerHTML = `
+
+                <h3>Datos Generales</h3>
+
+                <p><strong>Supervisor:</strong> ${auditoria.supervisor || "-"}</p>
+                <p><strong>Contratista:</strong> ${auditoria.contratista || "-"}</p>
+                <p><strong>Cuadrilla:</strong> ${auditoria.cuadrilla || "-"}</p>
+                <p><strong>Usuario:</strong> ${auditoria.usuarioSalesforce || "-"}</p>
+
+                <hr>
+
+                <h3>Control Técnicos</h3>
+
+                <p><strong>Apariencia:</strong> ${auditoria.aparienciaTecnico || "-"}</p>
+                <p><strong>Carnet:</strong> ${auditoria.carnetIdentificacion || "-"}</p>
+                <p><strong>Teléfono:</strong> ${auditoria.telefonoStaff || "-"}</p>
+
+                <hr>
+
+                <h3>Control Vehículo</h3>
+
+                <p><strong>ITV:</strong> ${auditoria.itv || "-"}</p>
+                <p><strong>Extinguidor:</strong> ${auditoria.extinguidor || "-"}</p>
+                <p><strong>Baliza:</strong> ${auditoria.baliza || "-"}</p>
+                <p><strong>Auxilio:</strong> ${auditoria.auxilio || "-"}</p>
+
+                <hr>
+
+                <h3>EPP</h3>
+
+                <p><strong>Anteojos:</strong> ${auditoria.anteojos || "-"}</p>
+                <p><strong>Casco:</strong> ${auditoria.casco || "-"}</p>
+                <p><strong>Guantes:</strong> ${auditoria.guantes || "-"}</p>
+
+                <hr>
+
+                <h3>Herramientas FTTH</h3>
+
+                <p><strong>Cleaver:</strong> ${auditoria.cleaver || "-"}</p>
+                <p><strong>Power Meter:</strong> ${auditoria.powerMeter || "-"}</p>
+                <p><strong>VFL:</strong> ${auditoria.vfl || "-"}</p>
+
+                <hr>
+
+                <h3>Observaciones</h3>
+
+                <p>
+                    ${auditoria.observaciones || "-"}
+                </p>
+
+            `;
+
+        }
+
+        initDB()
+            .then(() => {
+
+                cargarDetalle();
+
+            });
+
+    </script>
+
+</body>
+
+</html>
