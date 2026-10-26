@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Historial</title>
+    <title>Historial de Auditorías</title>
 
     <link rel="stylesheet"
           href="../css/app.css">
@@ -16,8 +17,7 @@
 
     <h1>Historial de Auditorías</h1>
 
-    <div id="historialList">
-    </div>
+    <div id="historialList"></div>
 
     <p>
         <a href="../index.html">
@@ -31,71 +31,97 @@
 
         async function cargarHistorial() {
 
-            const tx =
-                db.transaction(
-                    "auditorias",
-                    "readonly"
+            const lista =
+                document.getElementById(
+                    "historialList"
                 );
 
-            const store =
-                tx.objectStore(
-                    "auditorias"
-                );
+            lista.innerHTML = "";
 
-            const request =
-                store.getAll();
+            const auditorias =
+                await obtenerTodas();
 
-            request.onsuccess =
-                () => {
+            auditorias.reverse();
 
-                    const lista =
-                        document.getElementById(
-                            "historialList"
+            auditorias.forEach(
+                (item) => {
+
+                    const card =
+                        document.createElement(
+                            "div"
                         );
 
-                    lista.innerHTML = "";
+                    card.className = "card";
 
-                    const registros =
-                        request.result;
+                    card.innerHTML = `
 
-                    registros.reverse();
+                        <h3>
+                            ${item.cuadrilla || "-"}
+                        </h3>
 
-                    registros.forEach(
-                        item => {
+                        <p>
+                            <strong>Supervisor:</strong>
+                            ${item.supervisor || "-"}
+                        </p>
 
-                            const div =
-                                document.createElement(
-                                    "div"
-                                );
+                        <p>
+                            <strong>Contratista:</strong>
+                            ${item.contratista || "-"}
+                        </p>
 
-                            div.className =
-                                "card";
+                        <p>
+                            <strong>Usuario:</strong>
+                            ${item.usuarioSalesforce || "-"}
+                        </p>
 
-                            div.innerHTML = `
+                        <p>
+                            <strong>Fecha:</strong>
+                            ${item.fecha || "-"}
+                        </p>
 
-                                <h3>
-                                    ${item.cuadrilla || "-"}
-                                </h3>
+                        <p>
+                            <strong>Observaciones:</strong>
+                            ${item.observaciones || "-"}
+                        </p>
 
-                                <p>
-                                    <strong>Supervisor:</strong>
-                                    ${item.supervisor || "-"}
-                                </p>
+                        <button
+                            onclick="borrarAuditoria(${item.id})">
 
-                                <p>
-                                    <strong>Contratista:</strong>
-                                    ${item.contratista || "-"}
-                                </p>
+                            Eliminar
 
-                                <p>
-                                    <strong>Usuario:</strong>
-                                    ${item.usuarioSalesforce || "-"}
-                                </p>
+                        </button>
 
-                                <p>
-                                    <strong>Fecha:</strong>
-                                    ${item.fecha || "-"}
-                                </p>
+                    `;
 
-                                <p>
-                                    <strong>Observaciones
+                    lista.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+        }
+
+        async function borrarAuditoria(id) {
+
+            const confirmar =
+                confirm(
+                    "¿Eliminar auditoría?"
+                );
+
+            if (!confirmar) {
+
+                return;
+
+            }
+
+            await eliminarAuditoria(id);
+
+            cargarHistorial();
+
+        }
+
+        initDB()
+            .then(() => {
+
+                cargarHistorial
