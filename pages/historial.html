@@ -14,7 +14,7 @@
 
 <body>
 
-    <h1>Historial</h1>
+    <h1>Historial de Auditorías</h1>
 
     <div id="historialList">
     </div>
@@ -53,7 +53,14 @@
                             "historialList"
                         );
 
-                    request.result.forEach(
+                    lista.innerHTML = "";
+
+                    const registros =
+                        request.result;
+
+                    registros.reverse();
+
+                    registros.forEach(
                         item => {
 
                             const div =
@@ -65,33 +72,30 @@
                                 "card";
 
                             div.innerHTML = `
-                                <strong>${item.supervisor}</strong><br>
-                                ${item.contratista}<br>
-                                ${item.cuadrilla}<br>
-                                ${item.usuarioSalesforce}
-                            `;
 
-                            lista.appendChild(
-                                div
-                            );
+                                <h3>
+                                    ${item.cuadrilla || "-"}
+                                </h3>
 
-                        }
-                    );
+                                <p>
+                                    <strong>Supervisor:</strong>
+                                    ${item.supervisor || "-"}
+                                </p>
 
-                };
+                                <p>
+                                    <strong>Contratista:</strong>
+                                    ${item.contratista || "-"}
+                                </p>
 
-        }
+                                <p>
+                                    <strong>Usuario:</strong>
+                                    ${item.usuarioSalesforce || "-"}
+                                </p>
 
-        initDB().then(
-            () => {
+                                <p>
+                                    <strong>Fecha:</strong>
+                                    ${item.fecha || "-"}
+                                </p>
 
-                cargarHistorial();
-
-            }
-        );
-
-    </script>
-
-</body>
-
-</html>
+                                <p>
+                                    <strong>Observaciones
