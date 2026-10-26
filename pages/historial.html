@@ -107,10 +107,12 @@
 
         async function borrarAuditoria(id) {
 
-            const confirmar =
-                confirm(
-                    "¿Eliminar auditoría?"
-                 }
+      "¿Eliminar auditoría?"
+                );
+
+            if (!confirmar) {
+                return;
+            }
 
             await eliminarAuditoria(id);
 
