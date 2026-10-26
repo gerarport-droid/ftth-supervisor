@@ -119,12 +119,7 @@
                 id
             );
 
-            location.href =
-                "detalle.html";
-
-        }
-
-        async function borrarAuditoria(id) {
+           async function borrarAuditoria(id) {
 
             const confirmar =
                 confirm(
@@ -136,16 +131,16 @@
             }
 
             await eliminarAuditoria(id);
-            
+
+            cargarHistorial();
+
+        }
+
+        initDB()
+            .then(() => {
+
                 cargarHistorial();
-                
-}
 
-     initDB()
-    .then(() => {
-
-        cargarHistorial();   
-                  
             });
 
     </script>
