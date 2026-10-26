@@ -1,42 +1,4 @@
-function archivoABase64(inputId) {
-
-    return new Promise((resolve) => {
-
-        const archivo =
-            document.getElementById(
-                inputId
-            ).files[0];
-
-        if (!archivo) {
-
-            resolve(null);
-
-            return;
-
-        }
-
-        const reader =
-            new FileReader();
-
-        reader.onload =
-            () => resolve(
-                reader.result
-            );
-
-        reader.readAsDataURL(
-            archivo
-        );
-
-    });
-
-}
-
-document.addEventListener(
-    "DOMContentLoaded",
-    async () => {
-
-        if (typeof initDB === "function") {
-            await initDB();
+  await initDB();
         }
 
         let auditoriaId =
@@ -44,122 +6,119 @@ document.addEventListener(
                 "auditoriaEditar"
             );
 
-        let auditoriaOriginal =
-            null;
-
         if (auditoriaId) {
 
-            auditoriaOriginal =
+            const auditoria =
                 await obtenerAuditoria(
                     Number(auditoriaId)
                 );
 
-            if (auditoriaOriginal) {
+            if (auditoria) {
 
                 document.getElementById(
                     "supervisor"
                 ).value =
-                    auditoriaOriginal.supervisor || "";
+                    auditoria.supervisor || "";
 
                 document.getElementById(
                     "contratista"
                 ).value =
-                    auditoriaOriginal.contratista || "";
+                    auditoria.contratista || "";
 
                 document.getElementById(
                     "cuadrilla"
                 ).value =
-                    auditoriaOriginal.cuadrilla || "";
+                    auditoria.cuadrilla || "";
 
                 document.getElementById(
                     "usuarioSalesforce"
                 ).value =
-                    auditoriaOriginal.usuarioSalesforce || "";
+                    auditoria.usuarioSalesforce || "";
 
                 document.getElementById(
                     "aparienciaTecnico"
                 ).value =
-                    auditoriaOriginal.aparienciaTecnico || "";
+                    auditoria.aparienciaTecnico || "";
 
                 document.getElementById(
                     "carnetIdentificacion"
                 ).value =
-                    auditoriaOriginal.carnetIdentificacion || "";
+                    auditoria.carnetIdentificacion || "";
 
                 document.getElementById(
                     "telefonoStaff"
                 ).value =
-                    auditoriaOriginal.telefonoStaff || "";
+                    auditoria.telefonoStaff || "";
 
                 document.getElementById(
                     "uniformePantalon"
                 ).value =
-                    auditoriaOriginal.uniformePantalon || "";
+                    auditoria.uniformePantalon || "";
 
                 document.getElementById(
                     "uniformeRemera"
                 ).value =
-                    auditoriaOriginal.uniformeRemera || "";
+                    auditoria.uniformeRemera || "";
 
                 document.getElementById(
                     "itv"
                 ).value =
-                    auditoriaOriginal.itv || "";
+                    auditoria.itv || "";
 
                 document.getElementById(
                     "extinguidor"
                 ).value =
-                    auditoriaOriginal.extinguidor || "";
+                    auditoria.extinguidor || "";
 
                 document.getElementById(
                     "baliza"
                 ).value =
-                    auditoriaOriginal.baliza || "";
+                    auditoria.baliza || "";
 
                 document.getElementById(
                     "gato"
                 ).value =
-                    auditoriaOriginal.gato || "";
+                    auditoria.gato || "";
 
                 document.getElementById(
                     "llaveRuedas"
                 ).value =
-                    auditoriaOriginal.llaveRuedas || "";
+                    auditoria.llaveRuedas || "";
 
                 document.getElementById(
                     "auxilio"
                 ).value =
-                    auditoriaOriginal.auxilio || "";
+                    auditoria.auxilio || "";
 
                 document.getElementById(
                     "anteojos"
                 ).value =
-                    auditoriaOriginal.anteojos || "";
+                    auditoria.anteojos || "";
 
                 document.getElementById(
                     "casco"
                 ).value =
-                    auditoriaOriginal.casco || "";
+                    auditoria.casco || "";
 
                 document.getElementById(
                     "chaleco"
                 ).value =
-                    auditoriaOriginal.chaleco || "";
+                    auditoria.chaleco || "";
 
                 document.getElementById(
                     "guantes"
                 ).value =
-                    auditoriaOriginal.guantes || "";
+                    auditoria.guantes || "";
 
                 document.getElementById(
                     "zapatones"
                 ).value =
-                    auditoriaOriginal.zapatones || "";
+                    auditoria.zapatones || "";
 
                 document.getElementById(
                     "observaciones"
                 ).value =
-                    auditoriaOriginal.observaciones || "";
+                    auditoria.observaciones || "";
 
             }
 
@@ -168,36 +127,11 @@ document.addEventListener(
         const botonGuardar =
             document.getElementById(
                 "btnGuardar"
-            );
-
-        if (botonGuardar) {
-
-            botonGuardar.addEventListener(
-                "click",
-                async () => {
-
-                    const fotoEscalera =
-                        await archivoABase64(
-                            "fotoEscalera"
-                        );
-
-                    const fotoCleaver =
-                        await archivoABase64(
-                            "fotoCleaver"
-                        );
-
-                    const fotoPowerMeter =
-                        await archivoABase64(
-                            "fotoPowerMeter"
-                        );
-
-                    const fotoTecnicoVehiculo =
-                        await archivoABase64(
-                            "fotoTecnicoVehiculo"
-                        );
+@@ -19,7 +142,12 @@ document.addEventListener(
 
                     const auditoria = {
 
+                        id: Date.now(),
                         id:
                             auditoriaId
                             ? Number(
@@ -207,32 +141,14 @@ document.addEventListener(
 
                         fecha:
                             new Date()
-                            .toISOString(),
+@@ -156,6 +284,10 @@ document.addEventListener(
+                        auditoria
+                    );
 
-                        supervisor:
-                            document.getElementById(
-                                "supervisor"
-                            ).value,
+                    localStorage.removeItem(
+                        "auditoriaEditar"
+                    );
 
-                        contratista:
-                            document.getElementById(
-                                "contratista"
-                            ).value,
-
-                        cuadrilla:
-                            document.getElementById(
-                                "cuadrilla"
-                            ).value,
-
-                        usuarioSalesforce:
-                            document.getElementById(
-                                "usuarioSalesforce"
-                            ).value,
-
-                        aparienciaTecnico:
-                            document.getElementById(
-                                "aparienciaTecnico"
-                            ).value,
-
-                        carnetIdentificacion:
-                            document
+                    alert(
+                        "Auditoría guardada correctamente"
+                    );
