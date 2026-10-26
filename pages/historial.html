@@ -87,6 +87,13 @@
                         </p>
 
                         <button
+                            onclick="verAuditoria(${item.id})">
+
+                            Ver
+
+                        </button>
+
+                        <button
                             onclick="borrarAuditoria(${item.id})">
 
                             Eliminar
@@ -105,24 +112,30 @@
 
         }
 
-async function borrarAuditoria(id) {
+        function verAuditoria(id) {
 
-    const confirmar =
-        confirm(
-            "¿Eliminar auditoría?"
-        );
+            localStorage.setItem(
+                "auditoriaSeleccionada",
+                id
+            );
 
-    if (!confirmar) {
-        return;
-    }
+            location.href =
+                "detalle.html";
 
-    await eliminarAuditoria(id);
+        }
 
-    cargarHistorial();
+        async function borrarAuditoria(id) {
 
-}
+            const confirmar =
+                confirm(
+                    "¿Eliminar auditoría?"
+                );
 
-        initDB()
+            if (!confirmar) {
+                return;
+            }
+
+            await       initDB()
             .then(() => {
 
                 cargarHistorial();
