@@ -97,4 +97,36 @@
 
                     lista.appendChild(
                         card
-            
+                    );
+
+                }
+
+            );
+
+        }
+
+        async function borrarAuditoria(id) {
+
+            const confirmar =
+                confirm(
+                    "¿Eliminar auditoría?"
+                 }
+
+            await eliminarAuditoria(id);
+
+            cargarHistorial();
+
+        }
+
+        initDB()
+            .then(() => {
+
+                cargarHistorial();
+
+            });
+
+    </script>
+
+</body>
+
+</html>
