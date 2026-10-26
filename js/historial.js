@@ -25,9 +25,7 @@ async function cargarHistorial() {
 
             card.innerHTML = `
 
-                <h3>
-                    ${item.cuadrilla || "-"}
-                </h3>
+                <h3>${item.cuadrilla || "-"}</h3>
 
                 <p>
                     <strong>Supervisor:</strong>
@@ -46,23 +44,17 @@ async function cargarHistorial() {
 
                 <button
                     onclick="verAuditoria(${item.id})">
-
                     Ver
-
                 </button>
 
                 <button
                     onclick="editarAuditoria(${item.id})">
-
                     Editar
-
                 </button>
 
                 <button
                     onclick="borrarAuditoria(${item.id})">
-
                     Eliminar
-
                 </button>
 
             `;
