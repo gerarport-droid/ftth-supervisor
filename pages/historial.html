@@ -107,18 +107,20 @@
 
         async function borrarAuditoria(id) {
 
-      "¿Eliminar auditoría?"
-                );
+    const confirmar =
+        confirm(
+            "¿Eliminar auditoría?"
+        );
 
-            if (!confirmar) {
-                return;
-            }
+    if (!confirmar) {
+        return;
+    }
 
-            await eliminarAuditoria(id);
+    await eliminarAuditoria(id);
 
-            cargarHistorial();
+    cargarHistorial();
 
-        }
+}
 
         initDB()
             .then(() => {
