@@ -24,7 +24,6 @@ async function cargarHistorial() {
                 "card";
 
             card.innerHTML = `
-
                 <h3>
                     ${item.cuadrilla || "-"}
                 </h3>
@@ -67,7 +66,6 @@ async function cargarHistorial() {
                     Eliminar
 
                 </button>
-
             `;
 
             lista.appendChild(
