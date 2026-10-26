@@ -180,4 +180,17 @@ function eliminarAuditoria(id) {
 
                 resolve(true);
 
-    
+            };
+
+            request.onerror = () => {
+
+                reject(
+                    request.error
+                );
+
+            };
+
+        }
+    );
+
+}
