@@ -24,7 +24,10 @@ async function cargarHistorial() {
                 "card";
 
             card.innerHTML = `
-                <h3>${item.cuadrilla || "-"}</h3>
+
+                <h3>
+                    ${item.cuadrilla || "-"}
+                </h3>
 
                 <p>
                     <strong>Supervisor:</strong>
@@ -36,18 +39,37 @@ async function cargarHistorial() {
                     ${item.contratista || "-"}
                 </p>
 
+                <p>
+                    <strong>Usuario:</strong>
+                    ${item.usuarioSalesforce || "-"}
+                </p>
+
                 <button
                     onclick="verAuditoria(${item.id})">
+
                     Ver
+
+                </button>
+
+                <button
+                    onclick="editarAuditoria(${item.id})">
+
+                    Editar
+
                 </button>
 
                 <button
                     onclick="borrarAuditoria(${item.id})">
+
                     Eliminar
+
                 </button>
+
             `;
 
-            lista.appendChild(card);
+            lista.appendChild(
+                card
+            );
 
         }
 
@@ -64,6 +86,18 @@ function verAuditoria(id) {
 
     location.href =
         "detalle.html";
+
+}
+
+function editarAuditoria(id) {
+
+    localStorage.setItem(
+        "auditoriaEditar",
+        id
+    );
+
+    location.href =
+        "auditoria.html";
 
 }
 
