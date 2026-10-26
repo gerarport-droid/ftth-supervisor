@@ -18,10 +18,8 @@
 
     <h1>Detalle Auditoría</h1>
 
-    <div
-        id="detalle"
-        class="card">
-
+    <div id="detalle"
+         class="card">
     </div>
 
     <p>
@@ -55,6 +53,65 @@
 
                 <h3>Datos Generales</h3>
 
+                <p><strong>Supervisor:</strong> ${auditoria.supervisor || "-"}</p>
+                <p><strong>Contratista:</strong> ${auditoria.contratista || "-"}</p>
+                <p><strong>Cuadrilla:</strong> ${auditoria.cuadrilla || "-"}</p>
+                <p><strong>Usuario:</strong> ${auditoria.usuarioSalesforce || "-"}</p>
+
+                <hr>
+
+                <h3>Control Técnicos</h3>
+
+                <p><strong>Apariencia:</strong> ${auditoria.aparienciaTecnico || "-"}</p>
+                <p><strong>Carnet:</strong> ${auditoria.carnetIdentificacion || "-"}</p>
+                <p><strong>Teléfono:</strong> ${auditoria.telefonoStaff || "-"}</p>
+
+                <hr>
+
+                <h3>Control Vehículo</h3>
+
+                <p><strong>ITV:</strong> ${auditoria.itv || "-"}</p>
+                <p><strong>Extinguidor:</strong> ${auditoria.extinguidor || "-"}</p>
+                <p><strong>Baliza:</strong> ${auditoria.baliza || "-"}</p>
+                <p><strong>Auxilio:</strong> ${auditoria.auxilio || "-"}</p>
+
+                <hr>
+
+                <h3>EPP</h3>
+
+                <p><strong>Anteojos:</strong> ${auditoria.anteojos || "-"}</p>
+                <p><strong>Casco:</strong> ${auditoria.casco || "-"}</p>
+                <p><strong>Guantes:</strong> ${auditoria.guantes || "-"}</p>
+
+                <hr>
+
+                <h3>Herramientas FTTH</h3>
+
+                <p><strong>Cleaver:</strong> ${auditoria.cleaver || "-"}</p>
+                <p><strong>Power Meter:</strong> ${auditoria.powerMeter || "-"}</p>
+                <p><strong>VFL:</strong> ${auditoria.vfl || "-"}</p>
+
+                <hr>
+
+                <h3>Observaciones</h3>
+
                 <p>
-                    <strong>Supervisor:</strong>
-                    ${auditoria.supervisor || "-"
+                    ${auditoria.observaciones || "-"}
+                </p>
+
+            `;
+
+        }
+
+        initDB()
+            .then(() => {
+
+                cargarDetalle();
+
+            });
+
+    </script>
+
+</body>
+
+</html>
