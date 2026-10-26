@@ -24,9 +24,7 @@ async function cargarHistorial() {
                 "card";
 
             card.innerHTML = `
-                <h3>
-                    ${item.cuadrilla || "-"}
-                </h3>
+                <h3>${item.cuadrilla || "-"}</h3>
 
                 <p>
                     <strong>Supervisor:</strong>
@@ -38,39 +36,18 @@ async function cargarHistorial() {
                     ${item.contratista || "-"}
                 </p>
 
-                <p>
-                    <strong>Usuario:</strong>
-                    ${item.usuarioSalesforce || "-"}
-                </p>
-
-                <p>
-                    <strong>Fecha:</strong>
-                    ${item.fecha || "-"}
-                </p>
-
-                <p>
-                    <strong>Observaciones:</strong>
-                    ${item.observaciones || "-"}
-                </p>
-
                 <button
                     onclick="verAuditoria(${item.id})">
-
                     Ver
-
                 </button>
 
                 <button
                     onclick="borrarAuditoria(${item.id})">
-
                     Eliminar
-
                 </button>
             `;
 
-            lista.appendChild(
-                card
-            );
+            lista.appendChild(card);
 
         }
 
