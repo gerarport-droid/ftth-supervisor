@@ -135,11 +135,17 @@
                 return;
             }
 
-            await       initDB()
-            .then(() => {
-
+            await eliminarAuditoria(id);
+            
                 cargarHistorial();
+                
+}
 
+     initDB()
+    .then(() => {
+
+        cargarHistorial();   
+                  
             });
 
     </script>
