@@ -128,7 +128,27 @@ document.addEventListener(
                         observaciones:
                             document.getElementById(
                                 "observaciones"
-                            ).value
+                            ).value,
+
+                        fotoEscalera:
+                            document.getElementById(
+                                "fotoEscalera"
+                            ).files[0]?.name || "",
+
+                        fotoCleaver:
+                            document.getElementById(
+                                "fotoCleaver"
+                            ).files[0]?.name || "",
+
+                        fotoPowerMeter:
+                            document.getElementById(
+                                "fotoPowerMeter"
+                            ).files[0]?.name || "",
+
+                        fotoTecnicoVehiculo:
+                            document.getElementById(
+                                "fotoTecnicoVehiculo"
+                            ).files[0]?.name || ""
 
                     };
 
