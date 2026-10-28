@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SP Gestión Operacional - Cuadrillas</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Segoe UI, sans-serif;
+        }
+
+        body{
+            background:#071426;
+            color:white;
+            padding:20px;
+        }
+
+        h1{
+            margin-bottom:20px;
+        }
+
+        .dashboard{
+            display:grid;
+            grid-template-columns:
+                repeat(auto-fit,minmax(220px,1fr));
+            gap:15px;
+            margin-bottom:25px;
+        }
+
+        .card-indicador{
+            background:#0d2342;
+            border-left:5px solid #23d5ab;
+            padding:20px;
+            border-radius:12px;
+        }
+
+        .card-indicador h2{
+            font-size:32px;
+            color:#23d5ab;
+        }
+
+        .card-indicador p{
+            margin-top:6px;
+        }
+
+        .buscador{
+            margin-bottom:20px;
+        }
+
+        .buscador input{
+            width:100%;
+            padding:12px;
+            border-radius:8px;
+            border:none;
+            font-size:16px;
+        }
+
+        .grid-cuadrillas{
+
+            display:grid;
+
+            grid-template-columns:
+                repeat(auto-fit,minmax(280px,1fr));
+
+            gap:15px;
+
+        }
+
+        .card-cuadrilla{
+
+            background:#0d2342;
+
+            border-radius:12px;
+
+            padding:18px;
+
+            border-left:5px solid #23d5ab;
+
+        }
+
+        .codigo{
+
+            color:#23d5ab;
+
+            font-size:22px;
+
+            font-weight:bold;
+
+            margin-bottom:10px;
+
+        }
+
+        .estado{
+
+            display:inline-block;
+
+            padding:4px 10px;
+
+            border-radius:20px;
+
+            font-size:12px;
+
+            margin-bottom:12px;
+
+        }
+
+        .activa{
+            background:#198754;
+        }
+
+        .backup{
+            background:#0d6efd;
+        }
+
+        .vacaciones{
+            background:#ffc107;
+            color:black;
+        }
+
+        button{
+
+            margin-top:10px;
+
+            background:#23d5ab;
+
+            border:none;
+
+            padding:10px 15px;
+
+            border-radius:8px;
+
+            cursor:pointer;
+
+            font-weight:bold;
+
+            color:#071426;
+
+        }
+
+        button:hover{
+            opacity:.9;
+        }
+
+        a{
+            color:white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        👥 Gestión de Cuadrillas
+    </h1>
+
+    <div class="dashboard">
+
+        <div class="card-indicador">
+
+            <h2 id="totalCuadrillas">28</h2>
+
+            <p>Cuadrillas Activas</p>
+
+        </div>
+
+        <div class="card-indicador">
+
+            <h2>56</h2>
+
+            <p>Técnicos</p>
+
+        </div>
+
+        <div class="card-indicador">
+
+            <h2>26</h2>
+
+            <p>Móviles Operativos</p>
+
+        </div>
+
+        <div class="card-indicador">
+
+            <h2>7</h2>
+
+            <p>Patrullajes Pendientes</p>
+
+        </div>
+
+    </div>
+
+    <div class="buscador">
+
+        <input
+            type="text"
+            id="buscar"
+            placeholder="Buscar cuadrilla...">
+
+    </div>
+
+    <div
+        id="contenedorCuadrillas"
+        class="grid-cuadrillas">
+
+    </div>
+
+    <br>
+
+    <p>
+
+        ../index.html
+
+            ⬅ Volver al Inicio
+
+        </a>
+
+    </p>
+
+    <script>
+
+        const cuadrillas = [
+
+            {
+                codigo:"SPING23",
+                lider:"Ever Ferreira",
+                dupla:"Cynthia Manuela Martinez Osorio",
+                telefono:"595974456815",
+                salesforce:"u999635",
+                estado:"ACTIVA"
+            },
+
+            {
+                codigo:"SPING01",
+                lider:"Pendiente",
+                dupla:"Pendiente",
+                telefono:"-",
+                salesforce:"-",
+                estado:"ACTIVA"
+            },
+
+            {
+                codigo:"SPING02",
+                lider:"Pendiente",
+                dupla:"Pendiente",
+                telefono:"-",
+                salesforce:"-",
+                estado:"BACKUP"
+            }
+
+        ];
+
+        function cargarCuadrillas(lista){
+
+            const contenedor =
+                document.getElementById(
+                    "contenedorCuadrillas"
+                );
+
+            contenedor.innerHTML="";
+
+            lista.forEach(
+                (item)=>{
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+                    card.className =
+                        "card-cuadrilla";
+
+                    let claseEstado =
+                        "activa";
+
+                    if(
+                        item.estado ===
+                        "BACKUP"
+                    ){
+                        claseEstado =
+                            "backup";
+                    }
+
+                    if(
+                        item.estado ===
+                        "VACACIONES"
+                    ){
+                        claseEstado =
+                            "vacaciones";
+                    }
+
+                    card.innerHTML = `
+
+                        <div class="codigo">
+
+                            ${item.codigo}
+
+                        </div>
+
+                        <span
+                            class="estado ${claseEstado}">
+
+                            ${item.estado}
+
+                        </span>
+
+                        <p>
+
+                            <strong>Líder:</strong>
+
+                            ${item.lider}
+
+                        </p>
+
+                        <p>
+
+                            <strong>Dupla:</strong>
+
+                            ${item.dupla}
+
+                        </p>
+
+                        <p>
+
+                            <strong>Teléfono:</strong>
+
+                            ${item.telefono}
+
+                        </p>
+
+                        <p>
+
+                            <strong>Salesforce:</strong>
+
+                            ${item.salesforce}
+
+                        </p>
+
+                        <button>
+
+                            Ver Ficha
+
+                        </button>
+
+                    `;
+
+                    contenedor.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+        }
+
+        cargarCuadrillas(
+            cuadrillas
+        );
+
+        document
+            .getElementById(
+                "buscar"
+            )
+            .addEventListener(
+                "input",
+                (e)=>{
+
+                    const texto =
+                        e.target.value
+                        .toLowerCase();
+
+                    const resultado =
+                        cuadrillas.filter(
+                            c =>
+                            c.codigo
+                            .toLowerCase()
+                            .includes(texto)
+                        );
+
+                    cargarCuadrillas(
+                        resultado
+                    );
+
+                }
+            );
+
+    </script>
+
+</body>
+
+</html>
