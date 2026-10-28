@@ -2,31 +2,444 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>FTTH Supervisor</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <link rel="manifest"
-          href="./manifest.json">
+<title>SP Gestión Operacional</title>
 
-    <link rel="stylesheet"
-          href="./css/app.css">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#071426;
+    color:white;
+}
+
+.header{
+
+    background:#0d2342;
+
+    padding:25px;
+
+    border-bottom:3px solid #23d5ab;
+
+}
+
+.header h1{
+    color:#23d5ab;
+}
+
+.header p{
+    margin-top:8px;
+    opacity:.8;
+}
+
+.container{
+    padding:20px;
+}
+
+.kpis{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.kpi{
+
+    background:#0d2342;
+
+    border-left:5px solid #23d5ab;
+
+    border-radius:12px;
+
+    padding:20px;
+
+}
+
+.kpi .valor{
+
+    font-size:36px;
+
+    font-weight:bold;
+
+    color:#23d5ab;
+
+}
+
+.kpi .titulo{
+
+    margin-top:8px;
+
+    opacity:.8;
+
+}
+
+.modulos{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+}
+
+.modulo{
+
+    background:#0d2342;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    transition:.3s;
+
+}
+
+.modulo:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.modulo h2{
+
+    color:#23d5ab;
+
+    margin-bottom:15px;
+
+}
+
+.modulo p{
+
+    margin-bottom:15px;
+
+}
+
+.modulo a{
+
+    display:inline-block;
+
+    background:#23d5ab;
+
+    color:#071426;
+
+    text-decoration:none;
+
+    padding:10px 16px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+.ultimas{
+
+    margin-top:30px;
+
+    background:#0d2342;
+
+    padding:20px;
+
+    border-radius:12px;
+
+}
+
+.ultimas h2{
+
+    color:#23d5ab;
+
+    margin-bottom:20px;
+
+}
+
+.item{
+
+    padding:10px 0;
+
+    border-bottom:1px solid
+    rgba(255,255,255,.1);
+
+}
+
+.item:last-child{
+
+    border-bottom:none;
+
+}
+
+.footer{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    padding:20px;
+
+    opacity:.6;
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <h1>FTTH Supervisor</h1>
+<div class="header">
+
+    <h1>
+        SP Gestión Operacional
+    </h1>
 
     <p>
-        Auditoría y Supervisión de Cuadrillas FTTH
+        Centro de Control de Cuadrillas FTTH
     </p>
 
-    <a href="./pages/auditoria.html">
-        Nueva Auditoría
-    </a>
+</div>
+
+<div class="container">
+
+    <div class="kpis">
+
+        <div class="kpi">
+
+            <div class="valor">
+                28
+            </div>
+
+            <div class="titulo">
+                Cuadrillas Activas
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div class="valor">
+                56
+            </div>
+
+            <div class="titulo">
+                Técnicos Activos
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div class="valor">
+                84
+            </div>
+
+            <div class="titulo">
+                Auditorías Mes
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div class="valor">
+                7
+            </div>
+
+            <div class="titulo">
+                Patrullajes Pendientes
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div class="valor">
+                1.254
+            </div>
+
+            <div class="titulo">
+                Producción Mes
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div class="valor">
+                22
+            </div>
+
+            <div class="titulo">
+                Garantías Mes
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modulos">
+
+        <div class="modulo">
+
+            <h2>
+                👥 Cuadrillas
+            </h2>
+
+            <p>
+                Administración completa de cuadrillas,
+                líderes, duplas y móviles.
+            </p>
+
+            <a href="pages/cuadrillas.html">
+                Abrir
+            </a>
+
+        </div>
+
+        <div class="modulo">
+
+            <h2>
+                ✅ Auditorías
+            </h2>
+
+            <p>
+                Gestión de auditorías,
+                evidencias y cumplimiento.
+            </p>
+
+            <a href="pages/historial.html">
+                Abrir
+            </a>
+
+        </div>
+
+        <div class="modulo">
+
+            <h2>
+                🚨 Patrullajes
+            </h2>
+
+            <p>
+                Seguimiento periódico
+                de cuadrillas.
+            </p>
+
+            <a href="#">
+                Próximamente
+            </a>
+
+        </div>
+
+        <div class="modulo">
+
+            <h2>
+                📅 Agenda
+            </h2>
+
+            <p>
+                Disponibilidad diaria,
+                vacaciones y backup.
+            </p>
+
+            <a href="#">
+                Próximamente
+            </a>
+
+        </div>
+
+        <div class="modulo">
+
+            <h2>
+                📦 Materiales
+            </h2>
+
+            <p>
+                Control de stock
+                y consumo.
+            </p>
+
+            <a href="#">
+                Próximamente
+            </a>
+
+        </div>
+
+        <div class="modulo">
+
+            <h2>
+                📊 Producción
+            </h2>
+
+            <p>
+                Indicadores operativos
+                por cuadrilla.
+            </p>
+
+            <a href="#">
+                Próximamente
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="ultimas">
+
+        <h2>
+            Últimas Actividades
+        </h2>
+
+        <div class="item">
+
+            ✅ Auditoría SPING23 completada
+
+        </div>
+
+        <div class="item">
+
+            ✅ Patrullaje SPING12 registrado
+
+        </div>
+
+        <div class="item">
+
+            ✅ Actualización de cuadrilla SPING07
+
+        </div>
+
+        <div class="item">
+
+            ✅ Evidencias cargadas correctamente
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+
+    SP Gestión Operacional
+    © 2026
+
+</div>
 
 </body>
 
