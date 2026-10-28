@@ -3,334 +3,455 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>Ficha de Cuadrilla</title>
+<title>Ficha de Cuadrilla</title>
 
-    <style>
+<style>
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Segoe UI,sans-serif;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
 
-        body{
-            background:#071426;
-            color:white;
-            padding:20px;
-        }
+body{
+    background:#071426;
+    color:white;
+    padding:20px;
+}
 
-        h1{
-            margin-bottom:20px;
-        }
+h1{
+    margin-bottom:20px;
+}
 
-        .card{
+.card{
 
-            background:#0d2342;
+    background:#0d2342;
 
-            border-left:5px solid #23d5ab;
+    border-left:5px solid #23d5ab;
 
-            border-radius:12px;
+    border-radius:12px;
 
-            padding:20px;
+    padding:20px;
 
-            margin-bottom:15px;
+    margin-bottom:15px;
 
-        }
+}
 
-        .card h2{
+.card h2{
 
-            color:#23d5ab;
+    color:#23d5ab;
 
-            margin-bottom:15px;
+    margin-bottom:15px;
 
-        }
+}
 
-        .dato{
+.dato{
 
-            margin-bottom:8px;
+    margin-bottom:8px;
 
-        }
+}
 
-        .label{
+.label{
 
-            font-weight:bold;
+    font-weight:bold;
 
-            color:#23d5ab;
+    color:#23d5ab;
 
-        }
+}
 
-        .estado{
+.estado{
 
-            display:inline-block;
+    display:inline-block;
 
-            background:#198754;
+    background:#198754;
 
-            color:white;
+    color:white;
 
-            padding:5px 12px;
+    padding:5px 12px;
 
-            border-radius:20px;
+    border-radius:20px;
 
-            margin-top:10px;
+    margin-top:10px;
 
-        }
+}
 
-        .metricas{
+.metricas{
 
-            display:grid;
+    display:grid;
 
-            grid-template-columns:
-                repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
 
-            gap:15px;
+    gap:15px;
 
-            margin-top:20px;
+    margin-top:20px;
 
-        }
+}
 
-        .metrica{
+.metrica{
 
-            background:#11315f;
+    background:#11315f;
 
-            padding:15px;
+    padding:15px;
 
-            border-radius:10px;
+    border-radius:10px;
 
-            text-align:center;
+    text-align:center;
 
-        }
+}
 
-        .metrica h3{
+.metrica h3{
 
-            font-size:28px;
+    font-size:28px;
 
-            color:#23d5ab;
+    color:#23d5ab;
 
-        }
+}
 
-        a{
+a{
 
-            color:white;
+    color:white;
 
-            text-decoration:none;
+    text-decoration:none;
 
-        }
+}
 
-        .volver{
+.volver{
 
-            margin-top:20px;
+    margin-top:20px;
 
-            display:inline-block;
+    display:inline-block;
 
-        }
+}
 
-    </style>
+</style>
 
 </head>
 
 <body>
 
-    <h1>
-        👥 Ficha Cuadrilla
-    </h1>
+<h1>
+    👥 Ficha Cuadrilla
+</h1>
 
-    <div class="card">
+<div class="card">
 
-        <h2>
-            SPING23
-        </h2>
+    <h2 id="codigo">
+        Cargando...
+    </h2>
 
-        <div class="dato">
-            <span class="label">
-                Contratista:
-            </span>
-            SP Ingeniería
+    <div class="dato">
+
+        <span class="label">
+            Contratista:
+        </span>
+
+        <span id="contratista"></span>
+
+    </div>
+
+    <div class="dato">
+
+        <span class="label">
+            Supervisor:
+        </span>
+
+        <span id="supervisor"></span>
+
+    </div>
+
+    <div class="dato">
+
+        <span class="label">
+            Estado:
+        </span>
+
+        <span
+            id="estado"
+            class="estado">
+
+        </span>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2>
+        Personal
+    </h2>
+
+    <div class="dato">
+
+        <span class="label">
+            Líder:
+        </span>
+
+        <span id="lider"></span>
+
+    </div>
+
+    <div class="dato">
+
+        <span class="label">
+            Dupla:
+        </span>
+
+        <span id="dupla"></span>
+
+    </div>
+
+    <div class="dato">
+
+        <span class="label">
+            Teléfono:
+        </span>
+
+        <span id="telefono"></span>
+
+    </div>
+
+    <div class="dato">
+
+        <span class="label">
+            Usuario Salesforce:
+        </span>
+
+        <span id="salesforce"></span>
+
+    </div>
+
+    <div class="dato">
+
+        <span class="label">
+            Usuario U:
+        </span>
+
+        <span id="usuarioU"></span>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2>
+        Vehículo
+    </h2>
+
+    <div class="dato">
+
+        <span class="label">
+            Móvil:
+        </span>
+
+        <span id="movil"></span>
+
+    </div>
+
+    <div class="dato">
+
+        <span class="label">
+            Patente:
+        </span>
+
+        <span id="patente"></span>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2>
+        Indicadores Operacionales
+    </h2>
+
+    <div class="metricas">
+
+        <div class="metrica">
+
+            <h3 id="auditorias">
+                0
+            </h3>
+
+            <p>
+                Auditorías
+            </p>
+
         </div>
 
-        <div class="dato">
-            <span class="label">
-                Supervisor:
-            </span>
-            Gerardo Portillo
+        <div class="metrica">
+
+            <h3 id="patrullajes">
+                0
+            </h3>
+
+            <p>
+                Patrullajes
+            </p>
+
         </div>
 
-        <div class="dato">
-            <span class="label">
-                Estado:
-            </span>
+        <div class="metrica">
 
-            <span class="estado">
-                ACTIVA
-            </span>
+            <h3 id="instalaciones">
+                0
+            </h3>
+
+            <p>
+                Instalaciones
+            </p>
+
+        </div>
+
+        <div class="metrica">
+
+            <h3 id="garantias">
+                0
+            </h3>
+
+            <p>
+                Garantías
+            </p>
 
         </div>
 
     </div>
 
-    <div class="card">
+</div>
 
-        <h2>
-            Personal
-        </h2>
+<div class="card">
 
-        <div class="dato">
-            <span class="label">
-                Líder:
-            </span>
-            Ever Ferreira
-        </div>
+    <h2>
+        Observaciones
+    </h2>
 
-        <div class="dato">
-            <span class="label">
-                Dupla:
-            </span>
-            Cynthia Manuela Martinez Osorio
-        </div>
+    <p id="observaciones">
 
-        <div class="dato">
-            <span class="label">
-                Teléfono:
-            </span>
-            595974456815
-        </div>
+        Sin observaciones.
 
-        <div class="dato">
-            <span class="label">
-                Usuario Salesforce:
-            </span>
-            u999635
-        </div>
+    </p>
 
-        <div class="dato">
-            <span class="label">
-                Usuario U:
-            </span>
-            -
-        </div>
+</div>
 
-    </div>
+<a
+href="cuadrillas.html"
+class="volver">
 
-    <div class="card">
+⬅ Volver a Cuadrillas
 
-        <h2>
-            Vehículo
-        </h2>
+</a>
 
-        <div class="dato">
-            <span class="label">
-                Móvil:
-            </span>
-            SPING23
-        </div>
+<script src="../js/cuadrillas-data.js"></script>
 
-        <div class="dato">
-            <span class="label">
-                Patente:
-            </span>
-            Pendiente
-        </div>
+<script>
 
-        <div class="dato">
-            <span class="label">
-                ITV:
-            </span>
-            Vigente
-        </div>
+const codigoSeleccionado =
+    localStorage.getItem(
+        "cuadrillaSeleccionada"
+    );
 
-        <div class="dato">
-            <span class="label">
-                Extintor:
-            </span>
-            Vigente
-        </div>
+const cuadrilla =
+    cuadrillas.find(
+        c =>
+        c.codigo ===
+        codigoSeleccionado
+    );
 
-    </div>
+if(cuadrilla){
 
-    <div class="card">
+    document.getElementById(
+        "codigo"
+    ).innerText =
+        cuadrilla.codigo;
 
-        <h2>
-            Indicadores Operacionales
-        </h2>
+    document.getElementById(
+        "contratista"
+    ).innerText =
+        cuadrilla.contratista || "-";
 
-        <div class="metricas">
+    document.getElementById(
+        "supervisor"
+    ).innerText =
+        cuadrilla.supervisor || "-";
 
-            <div class="metrica">
+    document.getElementById(
+        "estado"
+    ).innerText =
+        cuadrilla.estado || "-";
 
-                <h3>
-                    12
-                </h3>
+    document.getElementById(
+        "lider"
+    ).innerText =
+        cuadrilla.lider || "-";
 
-                <p>
-                    Auditorías
-                </p>
+    document.getElementById(
+        "dupla"
+    ).innerText =
+        cuadrilla.dupla || "-";
 
-            </div>
+    document.getElementById(
+        "telefono"
+    ).innerText =
+        cuadrilla.telefono || "-";
 
-            <div class="metrica">
+    document.getElementById(
+        "salesforce"
+    ).innerText =
+        cuadrilla.usuarioSalesforce || "-";
 
-                <h3>
-                    4
-                </h3>
+    document.getElementById(
+        "usuarioU"
+    ).innerText =
+        cuadrilla.usuarioU || "-";
 
-                <p>
-                    Patrullajes
-                </p>
+    document.getElementById(
+        "movil"
+    ).innerText =
+   vil || "-";
 
-            </div>
+    document.getElementById(
+        "patente"
+    ).innerText =
+        cuadrilla.patente || "-";
 
-            <div class="metrica">
+    document.getElementById(
+        "auditorias"
+    ).innerText =
+        cuadrilla.auditorias || 0;
 
-                <h3>
-                    132
-                </h3>
+    document.getElementById(
+        "patrullajes"
+    ).innerText =
+        cuadrilla.patrullajes || 0;
 
-                <p>
-                    Instalaciones
-                </p>
+    document.getElementById(
+        "instalaciones"
+    ).innerText =
+        cuadrilla.instalacionesMes || 0;
 
-            </div>
+    document.getElementById(
+        "garantias"
+    ).innerText =
+        cuadrilla.garantiasMes || 0;
 
-            <div class="metrica">
+    document.getElementById(
+        "observaciones"
+    ).innerText =
+        cuadrilla.observaciones ||
+        "Sin observaciones.";
 
-                <h3>
-                    3
-                </h3>
+}
 
-                <p>
-                    Garantías
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="card">
-
-        <h2>
-            Observaciones
-        </h2>
-
-        <p>
-            Sin observaciones registradas.
-        </p>
-
-    </div>
-
-    <a
-        href="cuadrillas.html"
-        class="volver">
-
-        ⬅ Volver a Cuadrillas
-
-    </a>
+</script>
 
 </body>
 
