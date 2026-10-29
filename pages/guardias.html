@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Guardias</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#071426;
+    color:white;
+    padding:20px;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+.resumen{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.card{
+
+    background:#0d2342;
+
+    border-left:5px solid #23d5ab;
+
+    border-radius:12px;
+
+    padding:20px;
+
+}
+
+.card h2{
+
+    color:#23d5ab;
+
+    font-size:32px;
+
+}
+
+.card p{
+
+    margin-top:8px;
+
+}
+
+.seccion{
+
+    background:#0d2342;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+}
+
+.seccion h3{
+
+    color:#23d5ab;
+
+    margin-bottom:15px;
+
+}
+
+.item{
+
+    padding:12px;
+
+    border-bottom:1px solid
+    rgba(255,255,255,.1);
+
+}
+
+.item:last-child{
+
+    border-bottom:none;
+
+}
+
+.volver{
+
+    display:inline-block;
+
+    color:white;
+
+    margin-top:20px;
+
+    text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>
+🚨 Guardias de Supervisión
+</h1>
+
+<div class="resumen">
+
+    <div class="card">
+
+        <h2>11</h2>
+
+        <p>
+            Supervisores
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>30</h2>
+
+        <p>
+            Guardias Programadas
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>13</h2>
+
+        <p>
+            Feriados
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>14/11</h2>
+
+        <p>
+            Próxima Guardia
+        </p>
+
+    </div>
+
+</div>
+
+<div class="seccion">
+
+    <h3>
+        📅 Mi Próxima Guardia
+    </h3>
+
+    <div class="item">
+
+        Supervisor:
+        <strong>Gerardo Portillo</strong>
+
+        <br><br>
+
+        Fecha:
+        <strong>14/11/2026</strong>
+
+        <br><br>
+
+        Turno:
+        <strong>Sáb 2</strong>
+
+    </div>
+
+</div>
+
+<div class="seccion">
+
+    <h3>
+        🚨 Próximas Guardias
+    </h3>
+
+    <div class="item">
+
+        31/10/2026
+
+        <br>
+
+        Sáb 1 → Gerardo
+
+    </div>
+
+    <div class="item">
+
+        31/10/2026
+
+        <br>
+
+        Sáb 2 → Alejandro
+
+    </div>
+
+    <div class="item">
+
+        31/10/2026
+
+        <br>
+
+        Sáb 3 → Ricardo
+
+    </div>
+
+    <div class="item">
+
+        01/11/2026
+
+        <br>
+
+        Dom 1 → Daniel
+
+    </div>
+
+    <div class="item">
+
+        01/11/2026
+
+        <br>
+
+        Dom 2 → Luis
+
+    </div>
+
+</div>
+
+<div class="seccion">
+
+    <h3>
+        📚 Historial de Guardias
+    </h3>
+
+    <div class="item">
+
+        12/09/2026
+
+        <br>
+
+        Dom 1
+
+        <br>
+
+        Gerardo Portillo
+
+    </div>
+
+    <div class="item">
+
+        03/10/2026
+
+        <br>
+
+        Sáb 3
+
+        <br>
+
+        Gerardo Portillo
+
+    </div>
+
+</div>
+
+<a
+href="../index.html"
+class="volver">
+
+⬅ Volver al Dashboard
+
+</a>
+
+</body>
+
+</html>
