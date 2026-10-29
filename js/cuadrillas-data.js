@@ -42,6 +42,7 @@ const cuadrillas = [
         garantiasMes: 3,
 
         observaciones: ""
+
     }
 
 ];
