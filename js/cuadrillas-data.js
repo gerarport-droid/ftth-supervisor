@@ -5,7 +5,12 @@ const cuadrillas = [
 
         estado: "ACTIVA",
 
-        estadoOperacional: "ACTIVA",
+        estadoOperacional: "OPERATIVA",
+
+        fechaEstado: "29/10/2026",
+
+        observacionEstado:
+            "Trabajando normalmente",
 
         contratista: "SP Ingeniería",
 
