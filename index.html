@@ -36,11 +36,7 @@ body{
 
 .header h1{
     color:#23d5ab;
-}
-
-.header p{
-    margin-top:8px;
-    opacity:.8;
+    margin-bottom:6px;
 }
 
 .container{
@@ -74,7 +70,7 @@ body{
 
 .kpi .valor{
 
-    font-size:36px;
+    font-size:34px;
 
     font-weight:bold;
 
@@ -86,8 +82,6 @@ body{
 
     margin-top:8px;
 
-    opacity:.8;
-
 }
 
 .modulos{
@@ -95,9 +89,11 @@ body{
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
+    repeat(auto-fit,minmax(260px,1fr));
 
     gap:20px;
+
+    margin-bottom:30px;
 
 }
 
@@ -109,21 +105,13 @@ body{
 
     padding:20px;
 
-    transition:.3s;
-
-}
-
-.modulo:hover{
-
-    transform:translateY(-3px);
-
 }
 
 .modulo h2{
 
-    color:#23d5ab;
-
     margin-bottom:15px;
+
+    color:#23d5ab;
 
 }
 
@@ -131,19 +119,21 @@ body{
 
     margin-bottom:15px;
 
+    line-height:1.4;
+
 }
 
 .modulo a{
 
     display:inline-block;
 
+    text-decoration:none;
+
     background:#23d5ab;
 
     color:#071426;
 
-    text-decoration:none;
-
-    padding:10px 16px;
+    padding:10px 15px;
 
     border-radius:8px;
 
@@ -151,23 +141,23 @@ body{
 
 }
 
-.ultimas{
-
-    margin-top:30px;
+.panel{
 
     background:#0d2342;
 
+    border-radius:12px;
+
     padding:20px;
 
-    border-radius:12px;
+    margin-bottom:20px;
 
 }
 
-.ultimas h2{
+.panel h2{
 
     color:#23d5ab;
 
-    margin-bottom:20px;
+    margin-bottom:15px;
 
 }
 
@@ -175,8 +165,8 @@ body{
 
     padding:10px 0;
 
-    border-bottom:1px solid
-    rgba(255,255,255,.1);
+    border-bottom:
+    1px solid rgba(255,255,255,.1);
 
 }
 
@@ -188,13 +178,13 @@ body{
 
 .footer{
 
-    margin-top:40px;
-
-    text-align:center;
+    margin-top:30px;
 
     padding:20px;
 
-    opacity:.6;
+    text-align:center;
+
+    opacity:.7;
 
 }
 
@@ -227,7 +217,7 @@ body{
             </div>
 
             <div class="titulo">
-                Cuadrillas Activas
+                Cuadrillas Registradas
             </div>
 
         </div>
@@ -235,11 +225,35 @@ body{
         <div class="kpi">
 
             <div class="valor">
-                56
+                22
             </div>
 
             <div class="titulo">
-                Técnicos Activos
+                Operativas Hoy
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div class="valor">
+                3
+            </div>
+
+            <div class="titulo">
+                Backup
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div class="valor">
+                1
+            </div>
+
+            <div class="titulo">
+                Vacaciones
             </div>
 
         </div>
@@ -268,30 +282,6 @@ body{
 
         </div>
 
-        <div class="kpi">
-
-            <div class="valor">
-                1.254
-            </div>
-
-            <div class="titulo">
-                Producción Mes
-            </div>
-
-        </div>
-
-        <div class="kpi">
-
-            <div class="valor">
-                22
-            </div>
-
-            <div class="titulo">
-                Garantías Mes
-            </div>
-
-        </div>
-
     </div>
 
     <div class="modulos">
@@ -303,11 +293,46 @@ body{
             </h2>
 
             <p>
-                Administración completa de cuadrillas,
-                líderes, duplas y móviles.
+                Maestro de cuadrillas,
+                líderes, duplas,
+                móviles y usuarios.
             </p>
 
             <a href="pages/cuadrillas.html">
+                Abrir
+            </a>
+
+        </div>
+
+        <div class="modulo">
+
+            <h2>
+                📍 Estado Operacional
+            </h2>
+
+            <p>
+                Activas, Backup,
+                Libres y Vacaciones.
+            </p>
+
+            <a href="pages/estado-operacional.html">
+                Abrir
+            </a>
+
+        </div>
+
+        <div class="modulo">
+
+            <h2>
+                🚨 Guardias
+            </h2>
+
+            <p>
+                Guardias de fines de semana
+                y feriados.
+            </p>
+
+            <a href="pages/guardias.html">
                 Abrir
             </a>
 
@@ -320,7 +345,7 @@ body{
             </h2>
 
             <p>
-                Gestión de auditorías,
+                Auditorías,
                 evidencias y cumplimiento.
             </p>
 
@@ -333,46 +358,12 @@ body{
         <div class="modulo">
 
             <h2>
-                🚨 Patrullajes
+                🗺️ Zonas Operativas
             </h2>
 
             <p>
-                Seguimiento periódico
-                de cuadrillas.
-            </p>
-
-            <a href="#">
-                Próximamente
-            </a>
-
-        </div>
-
-        <div class="modulo">
-
-            <h2>
-                📅 Agenda
-            </h2>
-
-            <p>
-                Disponibilidad diaria,
-                vacaciones y backup.
-            </p>
-
-            <a href="#">
-                Próximamente
-            </a>
-
-        </div>
-
-        <div class="modulo">
-
-            <h2>
-                📦 Materiales
-            </h2>
-
-            <p>
-                Control de stock
-                y consumo.
+                Barrios, cobertura
+                y distribución geográfica.
             </p>
 
             <a href="#">
@@ -388,8 +379,8 @@ body{
             </h2>
 
             <p>
-                Indicadores operativos
-                por cuadrilla.
+                CTS, instalaciones,
+                migraciones y garantías.
             </p>
 
             <a href="#">
@@ -398,49 +389,60 @@ body{
 
         </div>
 
+        <div class="modulo">
+
+            <h2>
+                📦 Materiales
+            </h2>
+
+            <p>
+                Control de consumo
+                y materiales por cuadrilla.
+            </p>
+
+            <a href="#">
+                Próximamente
+            </a>
+
+        </div>
+
+        <div class="modulo">
+
+            <h2>
+                📊 Excel Maestro
+            </h2>
+
+            <p>
+                AUX DIA, AGD MES,
+                GUARDIAS y ZON OP.
+            </p>
+
+            <a
+            href="https://nucleopersonal-my.sharepoint.com/:x:/r/personal/u997902_personal_com_py/Documents/1%20-%20PERSONAL%20FLOW%20GP/1%20-%20AGENDA%20DIARIA/SP%20GESTION%20OPS/APP%20-%20AGENDA%20DIARIA%20-%20SVP%20OFS%20-%20GP%202026%20.xlsx?d=w0fe233d9d8eb4abc97289d55d4cd4d44&csf=1&web=1&e=pIdgUN"
+            target="_blank">
+
+                Abrir Excel
+
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="ultimas">
+    <div class="panel">
 
         <h2>
-            Últimas Actividades
+            🚨 Próxima Guardia
         </h2>
 
         <div class="item">
 
-            ✅ Auditoría SPING23 completada
+            Supervisor:
+            <strong>Gerardo Portillo</strong>
 
         </div>
 
         <div class="item">
 
-            ✅ Patrullaje SPING12 registrado
-
-        </div>
-
-        <div class="item">
-
-            ✅ Actualización de cuadrilla SPING07
-
-        </div>
-
-        <div class="item">
-
-            ✅ Evidencias cargadas correctamente
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="footer">
-
-    SP Gestión Operacional
-    © 2026
-
-</div>
-
-</body>
-
-</html>
+            Fecha:
+            <strong>14/11/2026</strong
