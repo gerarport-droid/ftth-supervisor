@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Zonas Operativas</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#071426;
+    color:white;
+    padding:20px;
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    margin-bottom:20px;
+
+}
+
+.card{
+
+    background:#0d2342;
+
+    border-left:5px solid #23d5ab;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+}
+
+.card h2{
+
+    color:#23d5ab;
+
+    margin-bottom:10px;
+
+}
+
+.card ul{
+
+    margin-left:20px;
+
+    margin-top:10px;
+
+}
+
+.volver{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>
+🗺️ Zonas Operativas
+</h1>
+
+<input
+type="text"
+id="buscarZona"
+placeholder="Buscar zona, distrito o barrio...">
+
+<div id="contenedorZonas">
+
+</div>
+
+<a
+href="../index.html"
+class="volver">
+
+⬅ Volver al Dashboard
+
+</a>
+
+<script src="../js/zonas-data.js"></script>
+
+<script>
+
+function cargarZonas(lista){
+
+    const contenedor =
+        document.getElementById(
+            "contenedorZonas"
+        );
+
+    contenedor.innerHTML = "";
+
+    lista.forEach(
+        zona => {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+            card.className =
+                "card";
+
+            card.innerHTML = `
+
+                <h2>
+                    ${zona.territorio}
+                </h2>
+
+                <p>
+                    <strong>Base:</strong>
+                    ${zona.base}
+                </p>
+
+                <p>
+                    <strong>Tecnología:</strong>
+                    ${zona.tecnologia}
+                </p>
+
+                <p>
+                    <strong>Departamento:</strong>
+                    ${zona.departamento}
+                </p>
+
+                <p>
+                    <strong>Distrito:</strong>
+                    ${zona.distrito}
+                </p>
+
+                <p>
+                    <strong>Barrios:</strong>
+                </p>
+
+                <ul>
+
+                    ${zona.barrios
+                        .map(
+                            b => `<li>${b}</li>`
+                        )
+                        .join("")}
+
+                </ul>
+
+            `;
+
+            contenedor.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+cargarZonas(zonas);
+
+document
+.getElementById("buscarZona")
+.addEventListener(
+"input",
+(e)=>{
+
+    const texto =
+        e.target.value
+        .toLowerCase();
+
+    const resultado =
+        zonas.filter(
+            z =>
+
+            z.territorio
+            .toLowerCase()
+            .includes(texto)
+
+            ||
+
+            z.distrito
+            .toLowerCase()
+            .includes(texto)
+
+            ||
+
+            z.barrios
+            .join(" ")
+            .toLowerCase()
+            .includes(texto)
+
+        );
+
+    cargarZonas(
+        resultado
+    );
+
+});
+
+</script>
+
+</body>
+
+</html>
