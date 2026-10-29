@@ -13,6 +13,10 @@ const zonas = [
 
         distrito: "AREGUÁ",
 
+        zonaRuteo: "NORTE",
+
+        descripcion: "ZONA AREGUA 1",
+
         barrios: [
 
             "VALLE PUCÚ",
@@ -37,6 +41,10 @@ const zonas = [
         departamento: "CENTRAL",
 
         distrito: "AREGUÁ",
+
+        zonaRuteo: "NORTE",
+
+        descripcion: "ZONA AREGUA DTH",
 
         barrios: [
 
