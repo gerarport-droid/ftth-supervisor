@@ -2,7 +2,12 @@ const cuadrillas = [
 
     {
         codigo: "SPING23",
+
         estado: "ACTIVA",
+
+        estadoOperacional: "ACTIVA",
+
+        contratista: "SP Ingeniería",
 
         supervisor: "Gerardo Portillo",
 
@@ -20,7 +25,23 @@ const cuadrillas = [
 
         patente: "",
 
-        contratista: "SP Ingeniería"
+        territorio: "AREGUA 1",
+
+        distrito: "AREGUÁ",
+
+        departamento: "CENTRAL",
+
+        tecnologia: "FTTH",
+
+        auditorias: 12,
+
+        patrullajes: 4,
+
+        instalacionesMes: 132,
+
+        garantiasMes: 3,
+
+        observaciones: ""
     }
 
 ];
