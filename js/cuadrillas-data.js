@@ -5,12 +5,14 @@ const cuadrillas = [
 
         estado: "ACTIVA",
 
-        estadoOperacional: "OPERATIVA",
+        estadoOperacional: "TRABAJA",
 
         fechaEstado: "29/10/2026",
 
+        zonaDelDia: "SAN LORENZO",
+
         observacionEstado:
-            "Trabajando normalmente",
+            "Instalaciones FTTH",
 
         contratista: "SP Ingeniería",
 
